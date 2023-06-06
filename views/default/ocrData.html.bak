@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+  <h1 style="align:center">OCR Reader</h1>
+    <div style="width:50%;float:left;">
+      <p><strong>Processed Image:</strong></p>
+        {{=has_error}}
+        {{if has_error:}}
+      <img src="{{ =image }}" style="width:100%"/>
+        {{else:}}
+         <img src="data:image/jpeg;base64,{{ =image }}" style="width:100%"/>
+        {{pass}}
+
+    </div>
+    <div style="width:50%;float:right;">
+   
+      <p><strong>Extracted Data:</strong></p>
+      <p>{{ =data }}</p>
+        {{for i, j in data.items():}}
+         {{=i}} {{=j}}
+        {{pass}}
+
+    </div>
